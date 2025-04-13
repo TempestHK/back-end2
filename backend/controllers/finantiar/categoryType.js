@@ -53,7 +53,7 @@ const updateCategoryType = asyncHandler(async (req, res) => {
 const deleteCategoryType = asyncHandler(async (req, res) => {
     const categoryType = await CategoryType.findById(req.params.id);
     if (categoryType) {
-        await categoryType.remove();
+        await categoryType.deleteOne();
         res.json({ message: "Category Type removed" });
     } else {
         res.status(404);

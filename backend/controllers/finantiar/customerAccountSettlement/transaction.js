@@ -62,7 +62,7 @@ const updateTransaction = asyncHandler(async (req, res) => {
 const deleteTransaction = asyncHandler(async (req, res) => {
     const transaction = await Transaction.findById(req.params.id);
     if (transaction) {
-        await transaction.remove();
+        await transaction.deleteOne();
         res.json({ message: "Transaction removed" });
     } else {
         res.status(404);

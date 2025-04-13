@@ -51,7 +51,7 @@ const updateCanselingTicket = asyncHandler(async (req, res) => {
 const deleteCanselingTicket = asyncHandler(async (req, res) => {
     const ticket = await cancelingTicketData.findById(req.params.id);
     if (ticket) {
-        await ticket.remove();
+        await ticket.deleteOne();
         res.json({ message: "Ticket removed" });
     } else {
         res.status(404);

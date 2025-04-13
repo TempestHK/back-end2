@@ -53,7 +53,7 @@ const updateLedger = asyncHandler(async (req, res) => {
 const deleteLedger = asyncHandler(async (req, res) => {
     const ledgerItem = await ledger.findById(req.params.id);
     if (ledgerItem) {
-        await ledgerItem.remove();
+        await ledgerItem.deleteOne();
         res.json({ message: "Ledger removed" });
     } else {
         res.status(404);

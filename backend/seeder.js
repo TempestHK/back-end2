@@ -2,7 +2,7 @@ import Product from "./models/productModel.js";
 import AdditionalFeeSettings from "./models/finantiar/addinitionalFeeSettings.js";
 import User from "./models/userModel.js";
 import CustomerCompany from "./models/finantiar/customerCompany.js";
-import Customer from "./models/admin/customer.js";
+
 import Employes from "./models/admin/employes.js";
 import Ledger from "./models/finantiar/customerAccountSettlement/ledger.js";
 import Transaction from "./models/finantiar/customerAccountSettlement/transaction.js";
@@ -15,7 +15,7 @@ import categoryTypes from "./data/financiar/categoryType.js";
 import cancelingTickets from "./data/financiar/cancelingTicket.js";
 import transactions from "./data/financiar/customerAccountSettlement/transaction.js";
 import ledgers from "./data/financiar/customerAccountSettlement/ledger.js";
-import customers from "./data/admin/customer.js";
+
 import employes from "./data/admin/employes.js";
 import users from "./data/users.js";
 import products from "./data/products.js";
@@ -33,7 +33,7 @@ async function importData() {
     await Product.deleteMany();
     await AdditionalFeeSettings.deleteMany();
     await CustomerCompany.deleteMany();
-    await Customer.deleteMany();
+
     await Employes.deleteMany();
     await Ledger.deleteMany();
     await Transaction.deleteMany();
@@ -48,7 +48,7 @@ async function importData() {
     const sampleProducts = products.map((product) => ({ ...product, user: adminUser }));
     const sampleAdditionalFeeSettings = additionalFeeSettings.map((feeSetting) => ({ ...feeSetting, user: financiarUser }));
     const sampleCustomerCompany = customerCompany.map((company) => ({ ...company, user: financiarUser }));
-    const sampleCustomers = customers.map((customer) => ({ ...customer, user: adminUser }));
+ 
     const sampleEmployes = employes.map((employe) => ({ ...employe, user: adminUser }));
     const sampleLedgers = ledgers.map((ledger) => ({ ...ledger, user: financiarUser }));
     const sampleTransactions = transactions.map((transaction) => ({ ...transaction, user: financiarUser }));
@@ -63,7 +63,7 @@ async function importData() {
       CustomerCompany.insertMany(sampleCustomerCompany),
       AdditionalFeeSettings.insertMany(sampleAdditionalFeeSettings),
       Product.insertMany(sampleProducts),
-      Customer.insertMany(sampleCustomers),
+
       Employes.insertMany(sampleEmployes),
       Ledger.insertMany(sampleLedgers),
       Transaction.insertMany(sampleTransactions),
@@ -88,7 +88,7 @@ async function destroyData() {
       Product.deleteMany(),
       AdditionalFeeSettings.deleteMany(),
       CustomerCompany.deleteMany(),
-      Customer.deleteMany(),
+
       Employes.deleteMany(),
       Ledger.deleteMany(),
       Transaction.deleteMany(),

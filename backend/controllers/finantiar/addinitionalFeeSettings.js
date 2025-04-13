@@ -86,7 +86,7 @@ const updateAdditionalFeeSettings = asyncHandler(async (req, res) => {
 const deleteAdditionalFeeSettings = asyncHandler(async (req, res) => {
     const additionalFeeSettings = await additionalFeeSettingsSchema.findById(req.params.id);
     if (additionalFeeSettings) {
-        await additionalFeeSettings.remove();
+        await additionalFeeSettings.deleteOne();
         res.json({ message: 'Additional Fee Settings removed' });
     } else {
         res.status(404);

@@ -68,7 +68,7 @@ const updateCustomerCompany = asyncHandler(async (req, res) => {
 const deleteCustomerCompany = asyncHandler(async (req, res) => {
     const customerCompany = await CustomerCompany.findById(req.params.id);
     if (customerCompany) {
-        await customerCompany.remove();
+        await customerCompany.deleteOne();
         res.json({ message: 'Customer Company removed' });
     } else {
         res.status(404);

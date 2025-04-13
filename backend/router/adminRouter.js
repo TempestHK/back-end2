@@ -33,16 +33,16 @@ router
     //workers-employes
 router 
     .route('/user/page')
-    .post(  getEmployes)
+    .post(protect, getEmployes)
 router
     .route('/user/create')
-    .post(protect,  createEmployes)
+    .post(protect, createEmployes)
 router
     .route('/user/delete/:id')
-    .delete(protect,  deleteEmployes)
+    .delete(protect, deleteEmployes)
 router
     .route('/user/update/:id')
-    .put(protect,  updateEmployes);
+    .put(protect, updateEmployes);
 
     
 export default router;

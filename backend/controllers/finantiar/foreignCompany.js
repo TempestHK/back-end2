@@ -53,7 +53,7 @@ const updateForeignCompany = asyncHandler(async (req, res) => {
 const deleteForeignCompany = asyncHandler(async (req, res) => {
     const foreignCompany = await ForeignCompany.findById(req.params.id);
     if (foreignCompany) {
-        await foreignCompany.remove();
+        await foreignCompany.deleteOne();
         res.json({ message: 'Foreign Company removed' });
     } else {
         res.status(404);

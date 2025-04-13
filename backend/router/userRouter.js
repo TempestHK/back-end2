@@ -1,30 +1,14 @@
 import express from 'express';
 import {
     getUsers,
-    getUsersById,
     loginUser,
     registerUser,
     logoutUser,
     getInfo,
-    deleteUser,
-    updateUser,
-    createUser,
-    getUserProfile,
-    updateUserProfile
+   
 } from '../controllers/userController.js';
-import {
-    getCustomer,
-    createCustomer,
-    deleteCustomer,
-    updateCustomer,
-} from '../controllers/admin/customer.js';
 
-import {
-    getEmployes,
-    createEmployes,
-    deleteEmployes,
-    updateEmployes,
-} from '../controllers/admin/employes.js';
+
 
 import { protect, admin } from '../middleware/authMiddleware.js';
 
